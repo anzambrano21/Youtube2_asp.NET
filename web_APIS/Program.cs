@@ -11,7 +11,13 @@ builder.Services.AddDbContext<Contexto>(options => options.UseSqlServer(Connecti
 builder.Services.AddAutoMapper(typeof(Program));
 // Add services to the container.
 
-builder.Services.AddControllers();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.DefaultIgnoreCondition =
+            System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault;
+    }); 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 

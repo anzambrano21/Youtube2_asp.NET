@@ -12,7 +12,7 @@ namespace web_APIS.Profiles
             CreateMap<Usuario, UsuarioDto>();
             CreateMap<Usuario, UsuarioVideo>(); // Necesitarás mapear los libros explícitamente
             CreateMap<Videos, VideoDto>()
-                .ForMember(dest => dest.NombreUsuario, opt => opt.MapFrom(src => src.Usuario.nombre)); // Mapear el nombre del autor
+                .ForMember(dest => dest.UsuarioID, opt => opt.MapFrom(src => src.Usuario.ID)); // Mapear el nombre del autor
 
     
         }

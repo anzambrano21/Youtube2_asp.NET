@@ -8,5 +8,7 @@
         public string email { get; set; }
         
         public bool estado { get; set; }
+
+        public List<VideoDto> Videos { get; set; }
     }
 }

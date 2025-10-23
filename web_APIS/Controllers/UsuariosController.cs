@@ -29,15 +29,30 @@ namespace web_APIS.Controllers
 
         // Código corregido
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()// <-- El tipo de retorno ahora es 'IEnumerable<UsuarioDto>'
+        public async Task<ActionResult<IEnumerable<UsuarioDto>>> GetUsuario()    // <-- El tipo de retorno ahora es 'IEnumerable<UsuarioDto>'
         {
-            var usuarios = await _context.Usuario.ToListAsync();
-            
-            // Mapea la lista de entidades 'Usuario' a una lista de DTOs 'UsuarioDto'.
-            var usuariosDto = _mapper.Map<IEnumerable<UsuarioDto>>(usuarios);
+            var videos = await _context.Usuario            
+            .Select(v => new UsuarioDto
+            {
+                ID = v.ID,
+                nombre = v.nombre,
+                
+                email = v.email,
+                
 
-            // Devuelve una respuesta 200 OK con la lista de DTOs.
-            return Ok(usuariosDto);
+                Videos = v.Videos.Select(vid => new VideoDto
+                {
+                    
+                    nombre = vid.nombre,
+                    descripcion = vid.descripcion,
+                    
+
+                    UsuarioID = vid.UsuarioID
+                }).ToList()
+
+            })
+            .ToListAsync();
+            return Ok(videos);
         }
 
         // GET: api/Usuarios/5

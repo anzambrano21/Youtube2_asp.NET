@@ -17,6 +17,10 @@ namespace Youtube2.Controllers
         {
             return View();
         }
+        public IActionResult Buscar()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

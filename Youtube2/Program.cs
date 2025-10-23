@@ -28,7 +28,10 @@ app.MapControllerRoute(
     name: "watchVideo",
     pattern: "Video/{v?}",
     defaults: new { controller = "Home", action = "Video" });
-
+app.MapControllerRoute(
+    name: "Buscar",
+    pattern: "Result/{v?}",
+    defaults: new { controller = "Home", action = "Buscar" });
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")

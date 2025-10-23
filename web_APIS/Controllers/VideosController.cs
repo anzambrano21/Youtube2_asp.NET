@@ -38,7 +38,7 @@ namespace web_APIS.Controllers
                 ID = v.ID,
                 nombre = v.nombre,
                 UsuarioID = v.UsuarioID,
-                NombreUsuario = v.Usuario.nombre,
+                
                 Archivo = v.Archivo,
                 descripcion = v.descripcion
             })

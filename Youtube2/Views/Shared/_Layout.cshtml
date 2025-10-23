@@ -14,11 +14,11 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5 d-flex justify-content-center">
-            <a class="navbar-brand" href="#!">Youtube pirata</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Youtube pirata</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="d-flex w-100 justify-content-center">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    <a class="btn btn-outline-success" asp-controller="Home" asp-action="Buscar">Buscar</a>
                 </form>
 
             </div>
@@ -27,9 +27,10 @@
     <!-- Header-->
 
     @RenderBody()
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Perfil" asp-route-v="video-123">Home</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Video" asp-route-v="video-123">video</a>
+    
     @*
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-v="video-123">Home</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Video" asp-route-v="video-123">video</a>
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>

@@ -4,7 +4,7 @@
     {
         public int ID { get; set; }
 
-        public ICollection<Videos>? Videos { get; set; }
+        public List<Videos>? Videos { get; set; } = new();
 
         public string? nombre { get; set; }
         public string? email { get; set; }
