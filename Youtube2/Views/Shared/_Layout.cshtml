@@ -5,28 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Youtube2</title>
     <script type="importmap"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Youtube2.styles.css" asp-append-version="true" />
+
    
 </head>
     
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container px-4 px-lg-5 d-flex justify-content-center">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Youtube pirata</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex w-100 justify-content-center">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <a class="btn btn-outline-success" asp-controller="Home" asp-action="Buscar">Buscar</a>
-                </form>
+        <div class="container-fluid px-4 px-lg-5 d-flex justify-content-between w-100">
 
+            <div class="d-flex align-items-center ">
+
+                <button class="btn btn-light rounded-circle **btn-menu-toggle**" id="sidebarToggle">
+                    <i class="bi bi-list fs-5"></i>
+                </button>
+                
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Youtube pirata</a>
             </div>
+
+            <form class="d-flex w-50 justify-content-center d-none d-lg-flex" role="search">
+                <input class="form-control me-1" type="search" placeholder="Buscar" aria-label="Buscar">
+                <a class="btn btn-outline-success" asp-controller="Home" asp-action="Buscar">Buscar</a>
+            </form>
+
+            <div class="d-flex align-items-center">
+                <button class="btn btn-success d-flex align-items-center rounded me-3">
+                    <i class="bi bi-plus fs-5 me-2"></i>
+                    <span>Crear</span>
+                </button>
+                <i class="bi bi-bell fs-5 ms-3"></i>
+                <i class="bi bi-person fs-5 ms-3"></i>
+            </div>
+
         </div>
     </nav>
     <!-- Header-->
 
-    @RenderBody()
+    <div class="d-flex" id="wrapper">
+        
+            
+
+        <div class="bg-light border-end " id="sidebar-wrapper" style="width: 225px;">
+            <div class="ps-4">
+
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="bi bi-house"></i>
+                        Principal</li>
+                    <li>
+                        <i class="bi bi-rewind-btn fs-3"></i>
+                        Suscripciones
+                    </li>
+                    
+                </ul>
+            </div>
+            <hr />
+            <div class="ps-4">
+            
+                <ul class="list-unstyled">
+                    <li>Tu ></li>
+                    <li>
+                        <i class="bi bi-caret-right-square fs-3"></i>
+                        Tus videos</li>
+                    <li>
+                        <i class="bi bi-hand-thumbs-up fs-3"></i>
+                        videos que te gustan</li>
+                </ul>
+            </div>
+            <hr />
+            <div class="ps-4">
+                <ul class="list-unstyled">
+                    <li>Suscripciones ></li>
+                    <!-- ciclo para sus supcriciones-->
+                </ul>
+            </div>
+            <hr />
+            
+
+            <div class="ps-4">
+
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="bi bi-gear fs-3"></i>
+                        configuraciones
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class=" flex-grow-1 " id="page-content-wrapper">
+            @RenderBody()
+        </div>
+    </div>
     
     @*
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-v="video-123">Home</a>
@@ -51,6 +125,23 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            let waper=document.getElementById('wrapper')
+            let siderbar= document.getElementById('sidebarToggle')
+
+            if(waper && siderbar){
+                siderbar.addEventListener('click',function(e){
+                    e.preventDefault();
+                    waper.classList.toggle('toggled')
+                })
+            }
+
+        })
+
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-</html>
+</html> 

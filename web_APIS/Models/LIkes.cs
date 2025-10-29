@@ -8,6 +8,6 @@
         public Videos? Video { get; set; }
 
         public int UsuarioID { get; set; }
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using web_APIS.Contex;
+using web_APIS.Dto;
 using web_APIS.Models;
 
 namespace web_APIS.Controllers
@@ -18,14 +19,22 @@ namespace web_APIS.Controllers
 
         public LIkesController(Contexto context)
         {
-            _context = context;
+            _context = context; 
         }
 
         // GET: api/LIkes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LIkes>>> GetLikes()
+        public async Task<ActionResult<IEnumerable<LikeDto>>> GetLikes()
         {
-            return await _context.Likes.ToListAsync();
+            return await _context.Likes.Select(
+                v=> new LikeDto
+                {
+                    ID= v.ID,
+                    UsuarioID= v.UsuarioID,
+                    VideoID= v.VideoID
+                    
+                }
+                ).ToListAsync();
         }
 
         // GET: api/LIkes/5

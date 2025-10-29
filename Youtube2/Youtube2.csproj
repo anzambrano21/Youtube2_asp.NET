@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="bootstrap" Version="5.3.7" />
+    <Compile Remove="wwwroot\lib\bootstrap-icons\**" />
+    <Content Remove="wwwroot\lib\bootstrap-icons\**" />
+    <EmbeddedResource Remove="wwwroot\lib\bootstrap-icons\**" />
+    <None Remove="wwwroot\lib\bootstrap-icons\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.3.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
     <PackageReference Include="System.Text.Json" Version="9.0.7" />
   </ItemGroup>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using web_APIS.Contex;
+using web_APIS.Dto;
 using web_APIS.Models;
 
 namespace web_APIS.Controllers
@@ -30,9 +31,20 @@ namespace web_APIS.Controllers
 
         // GET: api/Comentarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Comentario>> GetComentario(int id)
+        public async Task<ActionResult<List<ComentarioDto>>> GetComentario(int id)
         {
-            var comentario = await _context.Comentarios.FindAsync(id);
+            var comentario = await _context.Comentarios
+                .Where(v=> v.VideoID == id)
+                .Select(v=> new ComentarioDto
+                {
+                    contenido= v.contenido,
+
+                }
+                   
+                ).ToListAsync();
+                
+                
+                
 
             if (comentario == null)
             {

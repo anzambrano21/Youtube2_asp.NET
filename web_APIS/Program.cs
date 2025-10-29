@@ -1,35 +1,50 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using web_APIS.Contex;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+// 📦 Conexión a la base de datos
 var ConnectionString = builder.Configuration.GetConnectionString("Connections");
 builder.Services.AddDbContext<Contexto>(options => options.UseSqlServer(ConnectionString));
 
 builder.Services.AddAutoMapper(typeof(Program));
-// Add services to the container.
+builder.Services.AddHttpClient();
 
+// ✅ Configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowMVC", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5234") // Tu proyecto MVC
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials(); // 👉 si en algún momento usas cookies o autenticación
+    });
+});
 
+// ✅ Configuración de controladores y JSON
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.DefaultIgnoreCondition =
             System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault;
-    }); 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+    });
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ Middleware
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();
+
+// ⚠️ IMPORTANTE: UseCors debe ir ANTES de UseAuthorization
+app.UseCors("AllowMVC");
 
 app.UseAuthorization();
 

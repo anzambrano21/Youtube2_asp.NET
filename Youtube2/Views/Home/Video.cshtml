@@ -4,6 +4,7 @@
 @{
 
 }
+
 <div class="container-fluid px px-lg-5 mt-5 ">
     <div class="row gx-2 gx-lg-5">
 
@@ -11,7 +12,7 @@
             <div class="card h-100">
                 <div class="card-header p-0">
                     <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                        <iframe width="1047" height="589" src="https://www.youtube.com/embed/pv4jpbbyU-c?list=PLVwGIWvgnZKyU_Wx8YkQmG7Us2aWIAkJO" title="SE ACABÓ EL RACISMO EN SOUTH PARK 🎉 - South Park: Retaguardia en Peligro #3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                <div class="card-body">
@@ -41,7 +42,7 @@
                 </div>
                
             </div>
-            <div class="Comentarios card  mt-3">
+            <div class="Comentarios card  mt-3" >
                 
                     <form class="card-header d-flex w-100 justify-content-center">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
@@ -49,7 +50,7 @@
                         <button class="btn btn-outline-danger" type="submit">Cancelar</button>
                     </form>
 
-                <div class="card-body">
+                <div class="card-body" id="Comentaarios">
                     <!-- componente a repetir para los comentarios -->
                     <div>
                         <div class="col-auto d-flex align-items-center">
@@ -60,13 +61,14 @@
                             
                         </div>
                     </div>
+                   
                 </div>
             </div>
 
         </div>
-
-        <div class="col-md-3 mb-5">
-            <a href="/Video/12345" class="text-decoration-none text-dark">
+        <!-- componente a repetir para los vodeos recomendados -->
+        <div class="col-md-3 mb-5" id="recomendaciones">
+            <a href="/Video/12345" class="text-decoration-none text-dark pb-5">
                 <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
 
                     <div class="col">
@@ -96,3 +98,64 @@
 
     </div>
 </div>
+<script>
+    //consulta para poder ver los comentarios de cada video dependiendo de la url existente
+    const url = window.location.href;
+    const parts = url.split("/");
+    const id = parts[parts.length - 1];
+
+    fetch(`https://localhost:7004/api/comentarios/${id}`)
+        .then(res => res.json())
+            .then(data => {
+                const tbody = document.querySelector("#Comentaarios");
+                data.forEach(p => {
+                    tbody.innerHTML += `
+                    <div class="p-2">
+                        <div class="col-auto d-flex align-items-center">
+                            <div class="me-3">
+                                <p class="m-0">titulo del canal</p>
+                                <p class="m-0 text-muted ">${p.contenido}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    `;
+                });
+            });
+
+    //consulta para el partdo de videos recomendados 
+    fetch('https://localhost:7004/api/videos')
+    .then(res=> res.json())
+        .then(data=>{
+            const video=document.querySelector("#recomendaciones");
+            data.forEach(p=>{
+                video.innerHTML+=`
+                <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                    <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
+
+                        <div class="col">
+
+                            <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="text-left">
+
+                                <h5 class="fw-bolder">Fancy Product</h5>
+
+                                <p class="m-0 text-muted small">ESte es el nombre del usuario</p>
+
+                                <p class="m-0 text-muted small">fecha</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+                `
+            })
+        })
+</script>

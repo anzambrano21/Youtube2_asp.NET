@@ -32,15 +32,20 @@ namespace web_APIS.Controllers
 
 
             var videos = await _context.Videos
-            .Include(v => v.Usuario)
+
             .Select(v => new VideoDto
             {
                 ID = v.ID,
                 nombre = v.nombre,
                 UsuarioID = v.UsuarioID,
-                
+
+
                 Archivo = v.Archivo,
-                descripcion = v.descripcion
+                descripcion = v.descripcion,
+                UsuarioNombre = new Usuario
+                {
+                    nombre=v.Usuario.nombre
+                }
             })
             .ToListAsync();
             return Ok(videos);
