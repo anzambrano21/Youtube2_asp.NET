@@ -31,16 +31,14 @@ body {
 }
 
 
-#wrapper {
-    overflow-y: hidden;
-}
+
 #sidebar-wrapper {
     margin-left: -225px;
     transition: margin-left 0.5s ease;
     ;
 }
 #page-content-wrapper {
-    margin-left: 100px;
+    margin-left: 0px;
     transition: margin-left 0.5s ease
 }
 
@@ -50,4 +48,52 @@ body {
 
 #wrapper.toggled #page-content-wrapper {
     margin-left: 0; /* Lo trae a la vista */
+}
+/* Estado base del elemento */
+.principal {
+    /* Establecemos el borde aquí, pero transparente. 
+    Esto evita que el contenido "salte" cuando aparezca el borde.
+  */
+    border-bottom: 1px solid transparent;
+    cursor:pointer;
+    /* Esta es la corrección: 'transition' en lugar de 'transform'.
+    Le decimos que anime el cambio de 'border-bottom-color' 
+    durante 0.5 segundos.
+  */
+    transition: border-bottom-color 0.3s ease;
+}
+.marcado {
+    border-bottom: 1px solid #000000;
+}
+    /* Estado cuando el mouse está encima */
+    .principal:hover {
+        /* Cambiamos el color del borde. 'currentColor' usará el 
+    color del texto del elemento. También puedes usar 'black' 
+    o cualquier color específico (#FF0000, etc.).
+  */
+        border-bottom-color: currentColor;
+    }
+.listmenu > div > ul>li:hover {
+    background-color: #bab7b773;
+    border-radius:5px;
+    transition: background-color 0.5s ease;
+}
+.imgV-perfil{
+    width: 305px;
+}
+#carrusel {
+    mask-image: linear-gradient( to bottom, transparent 0%, /* Arriba: Completamente transparente */
+    black 15%, /* Visible desde el 15% */
+    black 85%, /* Visible hasta el 85% */
+    transparent 100% /* Abajo: Completamente transparente */
+    );
+    /* Versión con prefijo para compatibilidad (Chrome, Safari, Edge) */
+    -webkit-mask-image: linear-gradient( to bottom, transparent 0%, black 15%, black 85%, transparent 100% );
+    mask-image: linear-gradient( to right, transparent 0%, /* Izquierda: Inicia transparente (difuminado) */
+    black 10%, /* Se vuelve visible al 10% */
+    black 90%, /* Permanece visible hasta el 90% */
+    transparent 100% /* Derecha: Se vuelve transparente (difuminado) */
+    );
+    /* Versión con prefijo para compatibilidad */
+    -webkit-mask-image: linear-gradient( to right, transparent 0%, black 10%, black 90%, transparent 100% );
 }
