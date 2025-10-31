@@ -35,13 +35,13 @@ height:250px;" />
         <div class="container-fluid">
             <div class="row align-items-center d-flex">
                 <div class="col-auto p-2">
-                    <button class="btn btn-primary rounded-circle" style="width: 40px; height: 40px;">
+                    <button class="btn btn-primary rounded-circle" id="car1" style="width: 40px; height: 40px;">
                         <i class="bi bi-arrow-left-short"></i>
                     </button>
                 </div>
 
-                <div class="col">
-                    <div class="row row-cols-1 row-cols-lg-4 g-4" id="carrusel">
+                <div class="col" id="carrusel">
+                    <div class="row row-cols-1 row-cols-lg-4 g-4" id="itemcarri" >
                         <div class="col">
                             <div class="card h-100 shadow-sm">
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
@@ -111,7 +111,7 @@ height:250px;" />
                 </div>
 
                 <div class="col-auto p-2">
-                    <button class="btn btn-primary rounded-circle" style="width: 40px; height: 40px;">
+                    <button class="btn btn-primary rounded-circle" id="car2" style="width: 40px; height: 40px;">
                         <i class="bi bi-arrow-right-short"></i>
                     </button>
                 </div>
@@ -357,6 +357,23 @@ height:250px;" />
         })
     }
     
+    let tran=0;
+    let btn1=document.getElementById("car2").addEventListener('click',()=>{
+        tran++
+        //condicion para la cantidad de elementos en el contenedor
+        let carru=document.getElementById("itemcarri");
+        carru.style.transform=`translateX(-${tran*25}%)`;
+        carru.style.transition='transform 0.5s ease-in-out'
+    });
+    let btn2=document.getElementById("car1").addEventListener('click',()=>{
+        tran--
+        if(!(tran<0)){
+            let carru=document.getElementById("itemcarri");
+            carru.style.transform=`translateX(-${tran*25}%)`;
+            carru.style.transition='transform 0.5s ease-in-out'
+        }
+        
+    });
 
 
 </script>

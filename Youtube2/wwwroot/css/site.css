@@ -97,3 +97,7 @@ body {
     /* Versión con prefijo para compatibilidad */
     -webkit-mask-image: linear-gradient( to right, transparent 0%, black 10%, black 90%, transparent 100% );
 }
+#itemcarri:hover {
+    transform: translateX(-25%);
+    transition: transform 0.5s ease-in-out
+}
