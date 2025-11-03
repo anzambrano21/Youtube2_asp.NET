@@ -53,11 +53,16 @@
 
                 <ul class="list-unstyled" >
                     <li>
+                        <a href="http://localhost:5234/" class="text-decoration-none text-dark">
                         <i class="bi bi-house fs-3"></i>
-                        Principal</li>
+                        Principal
+                        </a>
+                    </li>
                     <li>
+                        <a href="http://localhost:5234/suscripcion" class="text-decoration-none text-dark">
                         <i class="bi bi-rewind-btn fs-3"></i>
                         Suscripciones
+                        </a>
                     </li>
                     
                 </ul>
@@ -66,19 +71,33 @@
             <div class="ps-4">
             
                 <ul class="list-unstyled">
-                    <li class="p-2">Tu ></li>
+                    <li class="p-2">
+                        <a href="http://localhost:5234/" class="text-decoration-none text-dark">
+                        Tu >
+                        </a>
+                        </li>
                     <li>
+                        <a href="http://localhost:5234/tusVideos" class="text-decoration-none text-dark">
                         <i class="bi bi-caret-right-square fs-3"></i>
-                        Tus videos</li>
+                        Tus videos
+                        </a>
+                    </li>
                     <li>
+                        <a href="http://localhost:5234/VLikes" class="text-decoration-none text-dark">
                         <i class="bi bi-hand-thumbs-up fs-3"></i>
-                        videos que te gustan</li>
+                        videos que te gustan
+                        </a>
+                    </li>
                 </ul>
             </div>
             <hr />
             <div class="ps-4">
                 <ul class="list-unstyled">
-                    <li class="p-2">Suscripciones ></li>
+                    <li class="p-2">
+                        <a href="http://localhost:5234/suscripcion" class="text-decoration-none text-dark">
+                        Suscripciones >
+                        </a>    
+                    </li>
                     <!-- ciclo para sus supcriciones-->
                 </ul>
             </div>
@@ -89,15 +108,16 @@
 
                 <ul class="list-unstyled">
                     <li>
+                        <a href="http://localhost:5234/settin" class="text-decoration-none text-dark">
                         <i class="bi bi-gear fs-3"></i>
                         configuraciones
-
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class=" flex-grow-1 " id="page-content-wrapper">
+        <div class=" flex-grow-1  " id="page-content-wrapper">
             @RenderBody()
         </div>
     </div>

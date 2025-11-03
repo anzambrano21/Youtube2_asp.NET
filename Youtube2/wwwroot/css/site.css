@@ -1,103 +1,164 @@
+/* =========================================
+   1. Configuraciones Base (HTML, Body, Tipografía)
+   ========================================= */
+
+/* Establece el tamaño de fuente base para dispositivos pequeños */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    /* Asegura que el HTML y Body cubran toda la altura de la ventana visible
+       para que los contenedores internos puedan usar 'height: 100%' correctamente. */
+    height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
+/* Media Query: Aumenta el tamaño de fuente para dispositivos medianos o grandes */
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Establece la altura del cuerpo al 100% de la altura de la ventana (viewport height). */
 body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    height: 100vh; /* 100% de la altura de la ventana visible */
+    overflow: hidden; /* **CLAVE:** Oculta el scroll por defecto del body.
+                         El scroll se aplicará solo al contenido principal. */
+    margin-bottom: 0; /* Eliminado margin-bottom: 60px; (usado a menudo para un footer fijo) */
 }
 
 
+/* =========================================
+   2. Estilos de Foco y Accesibilidad (Focus, Form Floating)
+   ========================================= */
 
+/* Estilo de foco (outline) consistente para elementos interactivos, mejorando la accesibilidad */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Ajustes de Placeholder para Floating Labels */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end; /* Alineación del placeholder por defecto */
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start; /* Alineación del placeholder al enfocar */
+}
+
+
+/* =========================================
+   3. Estructura Principal y Contenedores (Sidebar y Contenido)
+   ========================================= */
+
+/* Contenedor principal: Asegura que ocupe el 100% de la altura del body */
+#wrapper {
+    display: flex; /* Permite que los hijos (sidebar y contenido) se distribuyan */
+    height: 100%; /* Ocupa el 100% de la altura del body */
+}
+
+/* Menú Lateral (Sidebar) */
 #sidebar-wrapper {
-    margin-left: -225px;
+    width: 225px; /* Ancho fijo del sidebar */
+    margin-left: -225px; /* Oculta el sidebar por defecto */
     transition: margin-left 0.5s ease;
-    ;
+    /* Permite el scroll INDEPENDIENTE si el contenido del sidebar es mayor a 100% de la altura */
+    height: 100%;
+    overflow-y: auto; /* Permite scroll vertical si es necesario (el menú puede ser corto o largo) */
+    /* Oculta la barra de desplazamiento en algunos navegadores si no se usa (opcional) */
+    /* scrollbar-width: none; */
 }
+
+/* Contenido Principal (Content Wrapper) */
 #page-content-wrapper {
-    margin-left: 0px;
-    transition: margin-left 0.5s ease
+    padding-bottom:100px;
+    flex-grow: 1; /* Ocupa todo el espacio restante horizontalmente */
+    height: 100%; /* Ocupa el 100% de la altura del #wrapper */
+    overflow-y: auto; /* **CLAVE:** Habilita el scroll vertical para el CONTENIDO PRINCIPAL */
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+    /* Propiedades para ocultar la barra de scroll nativa */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer/Edge */
+    /* Webkit (Chrome, Safari) */
+    &::-webkit-scrollbar
+
+{
+    display: none;
 }
 
+transition: margin-left 0.5s ease;
+}
+
+/* Estado Toggled: Muestra el Sidebar */
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: 0; /* Lo trae a la vista */
+    margin-left: 0;
 }
 
+/* Estado Toggled: Ajusta el contenido si es necesario (en este caso, no es necesario cambiar margin-left de #page-content-wrapper ya que flexbox lo maneja, pero se mantiene si se necesita un diseño específico) */
 #wrapper.toggled #page-content-wrapper {
-    margin-left: 0; /* Lo trae a la vista */
+    /* Por lo general, este ajuste no es necesario si se usa flex-grow: 1 */
+    margin-left: 0;
 }
-/* Estado base del elemento */
+
+
+/* =========================================
+   4. Estilos de Componentes (principal, marcado, listmenu, imgV-perfil)
+   ========================================= */
+
+/* Elemento 'principal' (Puede ser un ítem de menú o un link destacado) */
 .principal {
-    /* Establecemos el borde aquí, pero transparente. 
-    Esto evita que el contenido "salte" cuando aparezca el borde.
-  */
     border-bottom: 1px solid transparent;
-    cursor:pointer;
-    /* Esta es la corrección: 'transition' en lugar de 'transform'.
-    Le decimos que anime el cambio de 'border-bottom-color' 
-    durante 0.5 segundos.
-  */
-    transition: border-bottom-color 0.3s ease;
+    cursor: pointer;
+    transition: border-bottom-color 0.3s ease; /* Transición para el color del borde */
 }
+
+/* Estado 'marcado' (Seleccionado/Activo) */
 .marcado {
     border-bottom: 1px solid #000000;
 }
-    /* Estado cuando el mouse está encima */
-    .principal:hover {
-        /* Cambiamos el color del borde. 'currentColor' usará el 
-    color del texto del elemento. También puedes usar 'black' 
-    o cualquier color específico (#FF0000, etc.).
-  */
-        border-bottom-color: currentColor;
-    }
-.listmenu > div > ul>li:hover {
+
+/* Efecto Hover para 'principal': Muestra el borde */
+.principal:hover {
+    border-bottom-color: currentColor; /* Usa el color del texto actual */
+}
+
+/* Efecto Hover para los ítems de lista dentro de .listmenu */
+.listmenu > div > ul > li:hover {
     background-color: #bab7b773;
-    border-radius:5px;
+    border-radius: 5px;
     transition: background-color 0.5s ease;
 }
-.imgV-perfil{
+
+/* Imagen de Perfil */
+.imgV-perfil {
     width: 305px;
 }
+
+
+/* =========================================
+   5. Estilos de Carrusel (carrusel, itemcarri)
+   ========================================= */
+
+/* Estilos de enmascaramiento para el carrusel */
 #carrusel {
-    mask-image: linear-gradient( to bottom, transparent 0%, /* Arriba: Completamente transparente */
-    black 15%, /* Visible desde el 15% */
-    black 85%, /* Visible hasta el 85% */
-    transparent 100% /* Abajo: Completamente transparente */
-    );
-    /* Versión con prefijo para compatibilidad (Chrome, Safari, Edge) */
-    -webkit-mask-image: linear-gradient( to bottom, transparent 0%, black 15%, black 85%, transparent 100% );
-    mask-image: linear-gradient( to right, transparent 0%, /* Izquierda: Inicia transparente (difuminado) */
-    black 10%, /* Se vuelve visible al 10% */
-    black 90%, /* Permanece visible hasta el 90% */
-    transparent 100% /* Derecha: Se vuelve transparente (difuminado) */
-    );
+    /* El código original tenía conflictos de 'mask-image' (top/bottom vs. right/left). 
+       Se mantiene el último (right/left) que parece ser el deseado para el scroll horizontal, 
+       pero se elimina el redundante top/bottom. */
+    /* Enmascaramiento de gradiente para difuminar los bordes laterales del carrusel */
+    mask-image: linear-gradient( to right, transparent 0%, black 10%, black 90%, transparent 100% );
     /* Versión con prefijo para compatibilidad */
     -webkit-mask-image: linear-gradient( to right, transparent 0%, black 10%, black 90%, transparent 100% );
 }
+
+/* Efecto Hover para el ítem del carrusel */
 #itemcarri:hover {
-    transform: translateX(-25%);
-    transition: transform 0.5s ease-in-out
+    transform: translateX(-25%); /* Desplaza el elemento un 25% a la izquierda */
+    transition: transform 0.5s ease-in-out;
 }

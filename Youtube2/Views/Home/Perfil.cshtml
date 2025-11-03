@@ -8,7 +8,7 @@
 <div class="container mt-1">
     <div class="row " id="videoIndex">
         <img src="/SNAKEYES.png" class="rounded-5" alt="Alternate Text" style="
-                                                            width:200vh;
+                                                                 width:200vh;
 height:250px;" />
 
     </div>
@@ -17,19 +17,19 @@ height:250px;" />
             <img src="/SNAKEYES.png" class="rounded-circle" alt="Alternate Text" style="width:150px; height:150px" />
         </div>
         <div class="col">
-            <h2>Nombre del perfil</h2>  
+            <h2>Nombre del perfil</h2>
             <p>N supcriptores . n videos</p>
             <p>Descripcion del canal</p>
         </div>
     </div>
-    
+
     <div class=" row mt-3 etiquetas border-bottom">
-        <div class="col-1 me-2 py-2 principal marcado">
+        <div class="col-1 me-2 py-2 principal marcado" data-index="0">
             princcipal
         </div>
-        <div class="col-1 py-2  principal">
+        <div class="col-1 py-2  principal" data-index="1">
             videos
-        </div> 
+        </div>
     </div>
     <div class="container px-4 px-lg-5 mt-5" id="pestana">
         <div class="container-fluid">
@@ -40,9 +40,9 @@ height:250px;" />
                     </button>
                 </div>
 
-                <div class="col" id="carrusel">
-                    <div class="row row-cols-1 row-cols-lg-4 g-4" id="itemcarri" >
-                        <div class="col">
+                <div class="col" id="carrusel" style="overflow: hidden;">
+                    <div class="row row-cols-1 row-cols-lg-4  g-4 flex-nowrap" id="itemcarri" style="transition: transform 0.5s ease-in-out; display: flex;">
+                        <div class="col" id="item" >
                             <div class="card h-100 shadow-sm">
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
                                 <div class="card-body p-2">
@@ -59,7 +59,7 @@ height:250px;" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col" id="item" >
                             <div class="card h-100 shadow-sm">
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
                                 <div class="card-body p-2">
@@ -75,7 +75,7 @@ height:250px;" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col" id="item" >
                             <div class="card h-100 shadow-sm">
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
                                 <div class="card-body p-2">
@@ -91,7 +91,7 @@ height:250px;" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col" id="item" >
                             <div class="card h-100 shadow-sm">
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
                                 <div class="card-body p-2">
@@ -101,6 +101,38 @@ height:250px;" />
                                         </div>
                                         <div class="col">
                                             <h6 class="fw-bolder mb-0">Otro Título</h6>
+                                            <p class="text-muted small mb-0">Más Detalles</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="item" >
+                            <div class="card h-100 shadow-sm">
+                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
+                                <div class="card-body p-2">
+                                    <div class="row g-0 align-items-center">
+                                        <div class="col-auto">
+                                            <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
+                                        </div>
+                                        <div class="col">
+                                            <h6 class="fw-bolder mb-0">Otro Título 5</h6>
+                                            <p class="text-muted small mb-0">Más Detalles</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="item" >
+                            <div class="card h-100 shadow-sm">
+                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
+                                <div class="card-body p-2">
+                                    <div class="row g-0 align-items-center">
+                                        <div class="col-auto">
+                                            <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
+                                        </div>
+                                        <div class="col">
+                                            <h6 class="fw-bolder mb-0">Otro Título 6</h6>
                                             <p class="text-muted small mb-0">Más Detalles</p>
                                         </div>
                                     </div>
@@ -108,6 +140,7 @@ height:250px;" />
                             </div>
                         </div>
                     </div>
+                    
                 </div>
 
                 <div class="col-auto p-2">
@@ -117,263 +150,374 @@ height:250px;" />
                 </div>
 
             </div>
+            <div class="row mt-3">
+                <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                    <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
+
+                        <div class="col-3">
+
+                            <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="text-left">
+
+                                <h5 class="fw-bolder">Fancy Product</h5>
+
+                                <p class="m-0 text-muted small">Cantodad de vistas que tiene el video </p>
+
+                                <div class="row mt-2">
+                                    <img src="/SNAKEYES.png" class="rounded-circle" alt="Avatar" style="width:57px; height:36px">
+                                    <p class="col">nombre del ususario del video</p>
+                                </div>
+                                <p>25% de la descripcion del video</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="row mt-3">
+                <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                    <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
+
+                        <div class="col-3">
+
+                            <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="text-left">
+
+                                <h5 class="fw-bolder">Fancy Product</h5>
+
+                                <p class="m-0 text-muted small">Cantodad de vistas que tiene el video </p>
+
+                                <div class="row mt-2">
+                                    <img src="/SNAKEYES.png" class="rounded-circle" alt="Avatar" style="width:57px; height:36px">
+                                    <p class="col">nombre del ususario del video</p>
+                                </div>
+                                <p>25% de la descripcion del video</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="row mt-3">
+                <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                    <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
+
+                        <div class="col-3">
+
+                            <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="text-left">
+
+                                <h5 class="fw-bolder">Fancy Product</h5>
+
+                                <p class="m-0 text-muted small">Cantodad de vistas que tiene el video </p>
+
+                                <div class="row mt-2">
+                                    <img src="/SNAKEYES.png" class="rounded-circle" alt="Avatar" style="width:57px; height:36px">
+                                    <p class="col">nombre del ususario del video</p>
+                                </div>
+                                <p>25% de la descripcion del video</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+
         </div>
     </div>
-    
+
 </div>
- <!--
-        <div class="container-fluid">
-                <div class="row align-items-center d-flex">
-                    <div class="col-auto p-2">
-                        <button class="btn btn-primary rounded-circle" style="width: 40px; height: 40px;">
-                            <i class="bi bi-arrow-left-short"></i>
-                        </button>
-                    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const etiquetaElements = document.querySelectorAll('.principal');
+        const pestanaContainer = document.querySelector('#pestana');
 
-                    <div class="col">
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
+        let tran = 0; // Variable global de desplazamiento
 
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Título del Producto</h6>
-                                                <p class="text-muted small mb-0">Detalles</p>
-                                            </div>
-                                        </div>
+        // --- Funciones de Renderizado (mantienen la estructura original) ---
+
+        // Función auxiliar para generar tarjetas del carrusel dinámicamente
+        const generateCarouselItems = (count) => {
+            let html = '';
+            // El original tenía 4 items estáticos, aquí generamos 8 para que el carrusel se pueda mover.
+            for (let i = 0; i < count; i++) {
+                html += `
+                    <div class="col" id="item"   style="flex: 0 0 25%; max-width: 25%;">
+                        <div class="card h-100 shadow-sm">
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
+                            <div class="card-body p-2">
+                                <div class="row g-0 align-items-center">
+                                    <div class="col-auto">
+                                        <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Otro Título</h6>
-                                                <p class="text-muted small mb-0">Más Detalles</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Otro Título</h6>
-                                                <p class="text-muted small mb-0">Más Detalles</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Otro Título</h6>
-                                                <p class="text-muted small mb-0">Más Detalles</p>
-                                            </div>
-                                        </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bolder mb-0">Título del Producto ${i + 1}</h6>
+                                        <p class="text-muted small mb-0">Detalles</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                `;
+            }
+            return html;
+        };
 
-                    <div class="col-auto p-2">
-                        <button class="btn btn-primary rounded-circle" style="width: 40px; height: 40px;">
-                            <i class="bi bi-arrow-right-short"></i>
-                        </button>
+        // Contenido de la pestaña 0 (Principal - Carrusel)
+        const renderPrincipalContent = () => {
+            return `
+                <div class="container-fluid">
+                    <div class="row align-items-center d-flex">
+                        <div class="col-auto p-2">
+                            <button class="btn btn-primary rounded-circle" id="car1" style="width: 40px; height: 40px;">
+                                <i class="bi bi-arrow-left-short"></i>
+                            </button>
+                        </div>
+
+                        <div class="col" id="carrusel" style="overflow: hidden;">
+                            <div class="row row-cols-1 row-cols-lg-4 g-4 flex-nowrap" id="itemcarri" style="transition: transform 0.5s ease-in-out; display: flex;">
+                                ${generateCarouselItems(8)}
+                            </div>
+                        </div>
+
+                        <div class="col-auto p-2">
+                            <button class="btn btn-primary rounded-circle" id="car2" style="width: 40px; height: 40px;">
+                                <i class="bi bi-arrow-right-short"></i>
+                            </button>
+                        </div>
                     </div>
+                    <div class="row mt-3">
+                <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                    <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
 
-                </div>
+                        <div class="col-3">
+
+                            <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="text-left">
+
+                                <h5 class="fw-bolder">Fancy Product</h5>
+
+                                <p class="m-0 text-muted small">Cantodad de vistas que tiene el video </p>
+
+                                <div class="row mt-2">
+                                    <img src="/SNAKEYES.png" class="rounded-circle" alt="Avatar" style="width:57px; height:36px">
+                                    <p class="col">nombre del ususario del video</p>
+                                </div>
+                                <p>25% de la descripcion del video</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
             </div>
-    -->
-<script>
-    var etiqueta= document.querySelectorAll('.principal');
-    let temp=0;
-    
+    <div class="row mt-3">
+                    <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                        <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
 
-    for(let i=0; i<etiqueta.length;i++){
-        
-        etiqueta[i].addEventListener('click',()=>{
-            let etiq=document.querySelector('.marcado')
-            if(etiq){
-                etiq.classList.toggle('marcado')
+                            <div class="col-3">
+
+                                <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="text-left">
+
+                                    <h5 class="fw-bolder">Fancy Product</h5>
+
+                                    <p class="m-0 text-muted small">Cantodad de vistas que tiene el video </p>
+
+                                    <div class="row mt-2">
+                                        <img src="/SNAKEYES.png" class="rounded-circle" alt="Avatar" style="width:57px; height:36px">
+                                        <p class="col">nombre del ususario del video</p>
+                                    </div>
+                                    <p>25% de la descripcion del video</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+    <div class="row mt-3">
+                <a href="/Video/12345" class="text-decoration-none text-dark p-2">
+                    <div class="row h-auto pt-2 pb-2 border rounded  mb-2    ">
+
+                        <div class="col-3">
+
+                            <img class="img-fluid" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="text-left">
+
+                                <h5 class="fw-bolder">Fancy Product</h5>
+
+                                <p class="m-0 text-muted small">Cantodad de vistas que tiene el video </p>
+
+                                <div class="row mt-2">
+                                    <img src="/SNAKEYES.png" class="rounded-circle" alt="Avatar" style="width:57px; height:36px">
+                                    <p class="col">nombre del ususario del video</p>
+                                </div>
+                                <p>25% de la descripcion del video</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+                            </div>
+            `;
+        };
+
+        // Contenido de la pestaña 1 (Videos - Grid)
+        const renderVideosContent = () => {
+             // El bucle original para generar 10 videos
+            let videosHtml = '';
+            for(let i=0; i<10;i++){
+                videosHtml += `
+                    <div class="col mb-5">
+                       <div class="card h-100">
+                           <img class="card-img-top text-center" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                           <div class="card-body p-1">
+                               <div class="row mt-2 ">
+
+                                   <div class="col-1">
+                                       <img src="/SNAKEYES.png" class="rounded-circle" alt="Alternate Text" style="width:36px; height:35px" />
+                                   </div>
+                                   <div class="col ms-3">
+                                       <h6 class="fw-bolder">titulo ${i + 1}</h6>
+
+                                       <p class="nav-link text-dark" asp-area="">detalles</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                    `;
             }
 
+            return `<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="videoPer">${videosHtml}</div>`;
+        };
 
-            etiqueta[i].classList.toggle('marcado')
-            temp=i;
-            let conte=document.querySelector('#pestana')
-            conte.innerHTML=``
-            
+        // --- Lógica del Carrusel (Aislada para ser reutilizada) ---
+
+            const setupCarouselListeners = () => {
+                const carru = document.getElementById("itemcarri");
+                const btnNext = document.getElementById("car2");
+                const btnPrev = document.getElementById("car1");
+
+                if (!carru || !btnNext || !btnPrev) return;
+
+                tran = 0;
+                carru.style.transform = `translateX(0%)`;
+
+                const getCarouselMetrics = () => {
+                    const totalItems = carru.querySelectorAll('#item').length;
+                    console.log(totalItems)
+                    const itemsVisible = document.documentElement.clientWidth < 980 ? 1 : 4;
+                   
+                    const maxTran = Math.max(totalItems - itemsVisible, 0);
+                    const itemWidthPercent = 100 / itemsVisible;
+                    return { maxTran, itemWidthPercent };
+                };
+
+                btnNext.addEventListener('click', () => {
+                    const { maxTran, itemWidthPercent } = getCarouselMetrics();
+                    if (tran < maxTran) {
+                        tran++;
+                        carru.style.transform = `translateX(-${tran * itemWidthPercent}%)`;
+                    }
+                });
+
+                btnPrev.addEventListener('click', () => {
+                    const { itemWidthPercent } = getCarouselMetrics();
+                    if (tran > 0) {
+                        tran--;
+                        carru.style.transform = `translateX(-${tran * itemWidthPercent}%)`;
+                    }
+                });
+            };
 
 
-            if(i==1){
-                
-                conte.innerHTML=`<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="videoPer">
+        // --- Lógica de Pestañas (Tab Switching) ---
 
-                </div>`
-                let pesta=document.querySelector('#videoPer')
-                for(let i=0; i<10;i++){
-                    
-                    pesta.innerHTML+=`
-                     <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top text-center" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-1">
-                                <div class="row mt-2 ">
-
-                                    <div class="col-1">
-                                        <img src="/SNAKEYES.png" class="rounded-circle" alt="Alternate Text" style="width:36px; height:35px" />
-                                    </div>
-                                    <div class="col ms-3">
-                                        <h6 class="fw-bolder">titulo</h6>
-
-                                        <p class="nav-link text-dark" asp-area="">detalles</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    `
+        for(let i = 0; i < etiquetaElements.length; i++){
+            etiquetaElements[i].addEventListener('click', () => {
+                // 1. Quitar 'marcado' de la pestaña actual
+                let etiq = document.querySelector('.marcado');
+                if(etiq){
+                    etiq.classList.remove('marcado');
                 }
-            }else if(i==0){
-                conte.innerHTML+=`
-                <div class="container-fluid">
-                <div class="row align-items-center d-flex">
-                    <div class="col-auto p-2">
-                        <button class="btn btn-primary rounded-circle" style="width: 40px; height: 40px;">
-                            <i class="bi bi-arrow-left-short"></i>
-                        </button>
-                    </div>
 
-                    <div class="col">
-                        <div class="row row-cols-1 row-cols-lg-4 g-4" id="carrusel">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
+                // 2. Marcar la pestaña clickeada
+                etiquetaElements[i].classList.add('marcado');
 
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Título del Producto</h6>
-                                                <p class="text-muted small mb-0">Detalles</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Otro Título</h6>
-                                                <p class="text-muted small mb-0">Más Detalles</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Otro Título</h6>
-                                                <p class="text-muted small mb-0">Más Detalles</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 shadow-sm">
-                                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Imagen de producto" />
-                                    <div class="card-body p-2">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-auto">
-                                                <img src="/SNAKEYES.png" class="rounded-circle me-3" alt="Avatar" style="width:36px; height:36px" />
-                                            </div>
-                                            <div class="col">
-                                                <h6 class="fw-bolder mb-0">Otro Título</h6>
-                                                <p class="text-muted small mb-0">Más Detalles</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                // 3. Generar el contenido (manteniendo la lógica original i==0/i==1)
+                pestanaContainer.innerHTML = ''; // Limpiar el contenedor como en tu código original
 
-                    <div class="col-auto p-2">
-                        <button class="btn btn-primary rounded-circle" style="width: 40px; height: 40px;">
-                            <i class="bi bi-arrow-right-short"></i>
-                        </button>
-                    </div>
+                const index = parseInt(etiquetaElements[i].getAttribute('data-index'));
 
-                </div>
-            </div>
-                `
+                if(index === 1){ // videos
+                    pestanaContainer.innerHTML = `<div class="container px-4 px-lg-5 mt-5">${renderVideosContent()}</div>`;
+                } else if(index === 0){ // princcipal
+                    pestanaContainer.innerHTML = `<div class="container px-4 px-lg-5 mt-5">${renderPrincipalContent()}</div>`;
+                    // Importante: Re-inicializar los listeners del carrusel después de re-renderizar el HTML
+                    setupCarouselListeners();
+                }
+            });
+        }
+
+        // Inicializar listeners del carrusel para el contenido que carga por defecto en el HTML
+        setupCarouselListeners();
+        window.addEventListener('resize',()=>{
+            console.log('accion')
+            if(window.innerWidth<=980){
+                const carru = document.getElementById("itemcarri");
+                tran = 0;
+                carru.style.transform = `translateX(0%)`;
+            }else if(window.innerWidth>=980){
+                const carru = document.getElementById("itemcarri");
+                tran = 0;
+                carru.style.transform = `translateX(0%)`;
             }
         })
-    }
+    });
     
-    let tran=0;
-    let btn1=document.getElementById("car2").addEventListener('click',()=>{
-        tran++
-        //condicion para la cantidad de elementos en el contenedor
-        let carru=document.getElementById("itemcarri");
-        carru.style.transform=`translateX(-${tran*25}%)`;
-        carru.style.transition='transform 0.5s ease-in-out'
-    });
-    let btn2=document.getElementById("car1").addEventListener('click',()=>{
-        tran--
-        if(!(tran<0)){
-            let carru=document.getElementById("itemcarri");
-            carru.style.transform=`translateX(-${tran*25}%)`;
-            carru.style.transition='transform 0.5s ease-in-out'
-        }
-        
-    });
-
-
 </script>
